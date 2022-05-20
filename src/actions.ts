@@ -1,0 +1,5 @@
+export const SET_SHOW_MODAL_VIEW = "SET_SHOW_MODAL_VIEW";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const SORT_BY_ALPHABET = "SORT_BY_ALPHABET";
+export const SORT_BY_COUNT = "SORT_BY_COUNT";
