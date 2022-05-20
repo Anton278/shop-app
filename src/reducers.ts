@@ -1,22 +1,23 @@
 import {
-    SET_SHOW_MODAL_VIEW,
+    SET_SHOW_ADD_PRODUCT_MODAL,
     SET_PRODUCTS,
     ADD_PRODUCT,
     SORT_BY_ALPHABET,
     SORT_BY_COUNT,
+    DELETE_PRODUCT,
 } from "./actions";
 import { IProduct } from "./assets/types";
 
 interface IDefAppState {
-    showModalView: boolean;
+    showAddProductModal: boolean;
 }
 const defAppState: IDefAppState = {
-    showModalView: false,
+    showAddProductModal: false,
 };
 export const appReducer = (state = defAppState, action: any) => {
     switch (action.type) {
-        case SET_SHOW_MODAL_VIEW:
-            return { ...state, showModalView: action.payload };
+        case SET_SHOW_ADD_PRODUCT_MODAL:
+            return { ...state, showAddProductModal: action.payload };
         default:
             return state;
     }
@@ -74,6 +75,13 @@ export const productsReducer = (
                         (product1: IProduct, product2: IProduct) =>
                             product1.count - product2.count
                     ),
+            };
+        case DELETE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter(
+                    (product: IProduct) => product.id !== action.payload
+                ),
             };
         default:
             return state;

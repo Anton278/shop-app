@@ -38,3 +38,22 @@
     background-color: #b02a37;
     border-color: #a52834;
 }
+/* modal-window */
+.modal {
+    position: fixed;
+    width: 1054px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px 0;
+    z-index: 15;
+}
+.modal__footer {
+    text-align: center;
+}
+.modal__footer > button:first-of-type {
+    margin-right: 20px;
+}

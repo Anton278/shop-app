@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./AddProductModal.css";
-import { useDispatch, useSelector } from "react-redux";
-import { ADD_PRODUCT, SET_SHOW_MODAL_VIEW } from "../../actions";
+import { useDispatch } from "react-redux";
+import { ADD_PRODUCT, SET_SHOW_ADD_PRODUCT_MODAL } from "../../actions";
 import { IProduct } from "../../assets/types";
 
 const AddProductModal = () => {
@@ -55,7 +55,7 @@ const AddProductModal = () => {
                     weight: weightValue,
                 },
             });
-            dispatch({ type: SET_SHOW_MODAL_VIEW, payload: false });
+            dispatch({ type: SET_SHOW_ADD_PRODUCT_MODAL, payload: false });
         }
     };
 
@@ -135,7 +135,10 @@ const AddProductModal = () => {
                     type="button"
                     className="custom-danger-btn"
                     onClick={() =>
-                        dispatch({ type: SET_SHOW_MODAL_VIEW, payload: false })
+                        dispatch({
+                            type: SET_SHOW_ADD_PRODUCT_MODAL,
+                            payload: false,
+                        })
                     }
                 >
                     Cancel
