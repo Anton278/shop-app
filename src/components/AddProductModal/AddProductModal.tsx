@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import "./ModalView.css";
+import "./AddProductModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_PRODUCT, SET_SHOW_MODAL_VIEW } from "../../actions";
 import { IProduct } from "../../assets/types";
 
-const ModalView = () => {
+const AddProductModal = () => {
     const [imgURL, setImgURL] = useState("");
     const [nameValue, setNameValue] = useState("");
     const [countValue, setCountValue] = useState("");
@@ -21,7 +21,7 @@ const ModalView = () => {
         if (typeof products === "string") {
             products = JSON.parse(products);
             if (Array.isArray(products)) {
-                return products.length;
+                return products.length + 1;
             }
             return Date.now();
         } else {
@@ -145,4 +145,4 @@ const ModalView = () => {
     );
 };
 
-export default ModalView;
+export default AddProductModal;

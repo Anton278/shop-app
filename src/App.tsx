@@ -1,6 +1,6 @@
 import "./App.css";
 import "./assets/common.css";
-import ModalView from "./components/ModalView";
+import AddProductModal from "./components/AddProductModal";
 import Card from "./components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -66,7 +66,7 @@ const App = () => {
                     />
                 ))}
             </main>
-            {showModalView && <ModalView />}
+            {showModalView && <AddProductModal />}
         </>
     );
 };

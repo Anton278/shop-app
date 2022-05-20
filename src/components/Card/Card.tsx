@@ -1,4 +1,5 @@
 import "./Card.css";
+import deleteImg from "./delete.svg";
 
 interface ICardProps {
     imageUrl: string;
@@ -8,6 +9,13 @@ interface ICardProps {
 const Card = ({ imageUrl, name }: ICardProps) => {
     return (
         <div className="card">
+            <img
+                src={deleteImg}
+                alt="delete-button"
+                width={20}
+                height={20}
+                className="card__delete-btn"
+            />
             <img
                 src={imageUrl}
                 alt={name}
