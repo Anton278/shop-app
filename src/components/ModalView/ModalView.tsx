@@ -14,15 +14,10 @@ const ModalView = () => {
     const errorMessageRef = useRef<any>();
 
     const dispatch = useDispatch();
-    const products: Array<any> = useSelector(
-        (state: any) => state.productsReducer
-    );
-    // const id:number = localStorage.getItem('poducts')
 
     const getID = (): number => {
         let products: Array<IProduct> | string | null =
             localStorage.getItem("products");
-
         if (typeof products === "string") {
             products = JSON.parse(products);
             if (Array.isArray(products)) {

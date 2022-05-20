@@ -22,12 +22,23 @@ export const appReducer = (state = defAppState, action: any) => {
     }
 };
 
+const getProductsFromLocalStorage = (): Array<IProduct> => {
+    let products: Array<IProduct> | string | null =
+        localStorage.getItem("products");
+    if (typeof products === "string") {
+        products = JSON.parse(products);
+        if (Array.isArray(products)) {
+            return products;
+        }
+    }
+    return [];
+};
 interface IDefProductsState {
     products: Array<IProduct>;
     sortBy: string;
 }
 const defProductsState = {
-    products: [],
+    products: getProductsFromLocalStorage(),
     sortBy: "Alphabet",
 };
 export const productsReducer = (

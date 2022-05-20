@@ -13,18 +13,9 @@ import { useEffect } from "react";
 import { IProduct } from "./assets/types";
 
 const App = () => {
-    const getProductsFromLocalStorage = () => {
-        let products: Array<IProduct> | string | null =
-            localStorage.getItem("products");
-        if (typeof products === "string") {
-            products = JSON.parse(products);
-            if (Array.isArray(products)) {
-                dispatch({ type: SET_PRODUCTS, payload: products });
-            }
-        } else {
-            localStorage.setItem("products", JSON.stringify([]));
-        }
-    };
+    if (!localStorage.getItem("products")) {
+        localStorage.setItem("products", JSON.stringify([]));
+    }
 
     const dispatch = useDispatch();
     const showModalView: boolean = useSelector(
@@ -37,10 +28,6 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem("products", JSON.stringify(products));
     }, [products]);
-
-    useEffect(() => {
-        getProductsFromLocalStorage();
-    }, []);
 
     return (
         <>
